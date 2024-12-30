@@ -9,8 +9,7 @@ class User(Base):
     hashed_password = Column(String)
     role = Column(String)
 
-    # courses = relationship('Course', back_populates='instructor')
-    # enrollment = relationship('Enrollment', back_populates='users')
+  
 
 
 class Course(Base):
@@ -21,9 +20,7 @@ class Course(Base):
     duration = Column(Integer)
     instructor_id = Column(Integer, ForeignKey('users.id'))
 
-    # instructor = relationship('User', back_populates='courses')
-    # lessons = relationship('Lesson', back_populates='course')
-    # enrollments = relationship('Enrollment', back_populates='course')
+    
 
 class Lesson(Base):
     __tablename__ = 'lessons'
@@ -32,7 +29,7 @@ class Lesson(Base):
     content = Column(String)
     course_id = Column(Integer, ForeignKey('courses.id'))
 
-    # course = relationship('Course', back_populates='lessons')
+    
 
 class Enrollment(Base):
     __tablename__ = 'enrollments'
@@ -41,5 +38,4 @@ class Enrollment(Base):
     course_id = Column(Integer, ForeignKey('courses.id'))
     progress = Column(Integer)
 
-    # users = relationship('User', back_populates='enrollment')
-    # course = relationship('Course', back_populates='enrollment')
+    
